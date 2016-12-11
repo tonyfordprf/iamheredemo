@@ -4,7 +4,7 @@ var router = express.Router();
 /* GET users listing. */
 router.get('/', function(req, res, next) {
     var db = req.db;
-    var collection = db.get('offices');
+    var collection = db.get('Offices');
     collection.find({},{},function(e,docs){
         res.json(docs);
     });	

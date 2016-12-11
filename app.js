@@ -7,11 +7,12 @@ var bodyParser = require('body-parser');
 
 var mongo = require('mongodb');
 var monk = require('monk');
-var db = monk('10.1.131.65:27017/iht');
+//var db = monk('10.1.131.65:27018/IHT-DEV');
+var db = monk(process.env.MONGODB);
 
 var index = require('./routes/index');
 var users = require('./routes/users');
-var location = require('./routes/location');
+var locations = require('./routes/location');
 
 var app = express();
 
@@ -35,7 +36,7 @@ app.use(function(req,res,next){
 
 app.use('/', index);
 app.use('/users', users);
-app.use('/location', location);
+app.use('/locations', locations);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

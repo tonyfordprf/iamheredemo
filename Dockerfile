@@ -1,4 +1,4 @@
-FROM node:argon
+FROM node
 
  
 # Provides cached layer for node_modules (hack) 
@@ -15,12 +15,12 @@ RUN npm install
 COPY . /usr/src/app
 
 # Expose port 
-EXPOSE 3002 
+EXPOSE 3000
  
  
 # Define env variables 
 ENV NODE_ENV='production' 
- 
+ENV MONGODB='UNDEFINED' 
  
 # Run app 
 CMD [ "npm", "start" ]
